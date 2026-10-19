@@ -35,8 +35,9 @@ Timestamp proof — OurNotes Namecard v1.0.1
 
 【2】比特币时间戳（OpenTimestamps）
 ------------------------------------------------------------
-  状态        已提交（待确认）。日历服务器已对「哈希 + 提交时刻」给出签名承诺，
-              1~2 小时后被写进比特币区块，可用 `ots upgrade` 升级为「已锚定」。
+  状态        已锚定（Bitcoin block 972187）。
+              日历服务器已把它合并进区块，任何人可用 `ots verify` 复现。
+              明细见 锚定信息.txt
   证明文件    OurNotes-Namecard-v1.0.1.zip.ots
               OurNotes-Namecard-v1.0.1-src.zip.ots
               发布包校验.txt.ots
