@@ -31,8 +31,8 @@
 ### 校验与时间存证
 
 * 发布包 SHA-256：`094f681f455c3e4a3d9c252d712a358b8e17bbe193ba887745143ba1caf797c7`
-* RFC 3161 可信时间戳（FreeTSA）：`proof/OurNotes名片助手-v1.0.1.zip.tsr`
-* 比特币时间戳（OpenTimestamps）：`proof/OurNotes名片助手-v1.0.1.zip.ots`
+* RFC 3161 可信时间戳（FreeTSA）：`proof/OurNotes-Namecard-v1.0.1.zip.tsr`
+* 比特币时间戳（OpenTimestamps）：`proof/OurNotes-Namecard-v1.0.1.zip.ots`
 * 封存源码包（不公开，只公开哈希）：见 `proof/archive-sha256.txt`
 * 独立验证方法：[`proof/README.md`](https://github.com/YKLovePython/ournotes-namecard/blob/main/proof/README.md)
 

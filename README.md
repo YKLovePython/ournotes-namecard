@@ -120,7 +120,7 @@ macOS, Linux and iOS are **not supported** and have not been tested.
 ## Verify the download
 
 ```powershell
-certutil -hashfile OurNotes名片助手-v1.0.1.zip SHA256
+certutil -hashfile OurNotes-Namecard-v1.0.1.zip SHA256
 ```
 
 must equal
@@ -172,8 +172,8 @@ Details, including the data model and the exact field layout:
 
 | What | Where |
 | --- | --- |
-| RFC 3161 token (FreeTSA) | `proof/OurNotes名片助手-v1.0.1.zip.tsr` |
-| Bitcoin attestation (OpenTimestamps) | `proof/OurNotes名片助手-v1.0.1.zip.ots` |
+| RFC 3161 token (FreeTSA) | `proof/OurNotes-Namecard-v1.0.1.zip.tsr` |
+| Bitcoin attestation (OpenTimestamps) | `proof/OurNotes-Namecard-v1.0.1.zip.ots` |
 | Sealed source archive (not published, hash only) | `proof/archive-sha256.txt` |
 | Verification steps | [`proof/README.md`](proof/README.md) |
 

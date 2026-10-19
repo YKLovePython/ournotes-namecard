@@ -54,7 +54,7 @@ def main() -> int:
     except Exception:                                # noqa: BLE001
         pass
 
-    target = sys.argv[1] if len(sys.argv) > 1 else "OurNotes名片助手-v1.0.1.zip"
+    target = sys.argv[1] if len(sys.argv) > 1 else "OurNotes-Namecard-v1.0.1.zip"
     stamp_path = sys.argv[2] if len(sys.argv) > 2 else target + ".ots"
 
     with open(stamp_path, "rb") as fd:

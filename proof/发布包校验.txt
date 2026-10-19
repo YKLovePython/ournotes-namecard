@@ -1,11 +1,14 @@
 OurNotes 名片助手 v1.0.1 —— 发布包校验
 Timestamp manifest — OurNotes Namecard v1.0.1
 ============================================================
-生成时间 2026-10-20 01:0x (UTC+8) / 2026-10-19 17:0x UTC
+Manifest v2（把发布名改成 GitHub 上实际使用的 ASCII 文件名）
+生成时间 2026-10-20 01:2x (UTC+8) / 2026-10-19 17:2x UTC
 
 【1】发布包（GitHub Release 附件，公开）
 ------------------------------------------------------------
-  文件        OurNotes名片助手-v1.0.1.zip
+  发布名      OurNotes-Namecard-v1.0.1.zip
+  本机名      OurNotes名片助手-v1.0.1.zip（同一份字节；GitHub 会把非 ASCII
+              的附件名规范化，所以下载时看到的是上面那个 ASCII 名字）
   大小        37726202 bytes (35.98 MiB)
   SHA-256     094f681f455c3e4a3d9c252d712a358b8e17bbe193ba887745143ba1caf797c7
   内容        单个条目 OurNotes名片助手.exe
@@ -14,6 +17,8 @@ Timestamp manifest — OurNotes Namecard v1.0.1
   构建        2026-10-20 01:01 (UTC+8)
               PyInstaller 6.14.2 --onefile --windowed, Python 3.11.9 x64
               Windows 10/11 x64 + 安卓手机（USB 调试）
+  旁证        GitHub 上传接口回执里的 digest 字段：
+              sha256:094f681f455c3e4a3d9c252d712a358b8e17bbe193ba887745143ba1caf797c7
 
 【2】封存源码包（**不公开**，只公开哈希）
 ------------------------------------------------------------
