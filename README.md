@@ -75,7 +75,7 @@ OURNOTES-CARD-v1:<base64url(zlib(json))>
 ```
 {
   "format": "ournotes-namecard", "version": 1,
-  "from": { "name": "井芹仁菜", "id": 21516650336, "exportedAt": "2026-10-18T20:44:58" },
+  "from": { "name": "示例玩家", "id": 10000000000, "exportedAt": "2026-10-18T20:44:58" },
   "slots": [ { "slot": 1, "name": "Set1", "objects": [
       { "index": 1, "body": { "items": [
           { "itemType": "Image",
