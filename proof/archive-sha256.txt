@@ -1,0 +1,45 @@
+OurNotes 名片助手 v1.0.1 —— 封存源码包
+Sealed source archive — hash only, the archive itself is NOT published
+============================================================
+
+File     : OurNotes-Namecard-v1.0.1-src.zip
+Size     : 408415 bytes (398.8 KiB)
+Files    : 106
+SHA-256  : 6a4f2e76db19b6ab510fc2d7e1c823efe691995acf0a7bbfd530893e961ca27c
+Created  : 2026-10-20 01:0x (UTC+8)
+Sealed   : 2026-10-20 01:06 (UTC+8)
+           RFC 3161 (FreeTSA) + Bitcoin (OpenTimestamps)
+
+Contents
+--------
+  run.py / gui.py / 启动.bat / 打包.bat / requirements.txt
+  ournotes/          核心包：api / creds / card / sharecode / pb / cli / webui / paths
+                     + assets（图标与品牌图）
+  recon/             逆向过程脚本（只收 .py）
+  tools/build_exe.py PyInstaller 打包脚本
+  README.md / HANDOFF.md / AGENTS.md
+
+  不含：cred.json（账号凭据）、server.json、my.bcard.json、
+        local/ pulled/（解密后的存档）、dist/ build/（构建产物）、
+        recon/base.apk（454 MB 的游戏安装包）。
+
+Integrity of the timeline
+-------------------------
+  zip 内每个条目都保留了源文件在磁盘上的 mtime，所以时间线本身也在封存范围内：
+    2026-10-18 20:40  最早的源码文件
+    2026-10-18 23:01  分享码往返首次逐字节一致
+    2026-10-20 01:01  发布用单文件 exe 构建完成
+
+Why it is not published
+-----------------------
+  源码不公开是作者的选择。哈希公开的意义是：作者以后任何时候拿出这个包，
+  任何人都能 (1) 算一遍哈希对上，(2) 用它配套的 .tsr / .ots 验证它确实存在于
+  2026-10-20。这样既保留了「谁先做的」的证据，又没有公开实现。
+
+Verify
+------
+  python ots_verify_independent.py OurNotes-Namecard-v1.0.1-src.zip \
+                                   OurNotes-Namecard-v1.0.1-src.zip.ots
+  openssl ts -verify -in OurNotes-Namecard-v1.0.1-src.zip.tsr \
+                       -data OurNotes-Namecard-v1.0.1-src.zip \
+                       -CAfile freetsa_cacert.pem -untrusted freetsa_tsa.crt
