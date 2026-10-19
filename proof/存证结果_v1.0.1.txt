@@ -41,10 +41,13 @@ Timestamp proof — OurNotes Namecard v1.0.1
   证明文件    OurNotes-Namecard-v1.0.1.zip.ots
               OurNotes-Namecard-v1.0.1-src.zip.ots
               发布包校验.txt.ots
-  升级/校验   ots upgrade <文件>      # 等 1~2 小时后执行
-              ots verify  <文件>      # 打印区块高度与区块时间
-              ots info    <文件>.ots  # 只看证明内容
-              不装工具也可以把 <文件> 与 <文件>.ots 上传到 https://opentimestamps.org
+  区块        block 972187, 2026-10-19 17:49:13 UTC
+              hash 00000000000000000000e5eee7f2bce90258afe24cf61efdc0df66693bca58b2
+  复核        ots info   <文件>.ots   # 离线：摘要 + 路径 + 区块高度
+              ots verify <文件>.ots   # 需要本地 Bitcoin Core 节点
+              python ots_verify_independent.py <文件> <文件>.ots
+                                      # 不用节点：从 mempool.space 取区块头重算
+              也可以把 <文件> 与 <文件>.ots 上传到 https://opentimestamps.org
   独立校验    python ots_verify_independent.py <文件> <文件>.ots
               （自己从 mempool.space 取区块头重算，不依赖 ots 命令行）
 

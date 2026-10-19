@@ -4,9 +4,8 @@
 
 > **状态（2026-10-20 01:06 / 01:22 UTC+8）：** RFC 3161 已签发（三份，`granted`；
 > 发布包与封存源码包 01:06，清单因为改了发布名在 01:22 重签一次）；
-> **比特币已锚定（block 972187）**，明细见 [`锚定信息.txt`](锚定信息.txt)。
-> 复核时在 `proof/` 目录执行
-> `ots upgrade OurNotes-Namecard-v1.0.1.zip` 即可把它升级成「已锚定」。
+> **比特币已锚定：block 972187（2026-10-19 17:49:13 UTC）**，
+> 明细见 [`锚定信息.txt`](锚定信息.txt)。
 > 结果汇总：[`存证结果_v1.0.1.txt`](存证结果_v1.0.1.txt)
 
 这个目录是一份**公开的时间承诺**：它证明下面这些东西在 **2026-10-20**
@@ -61,22 +60,29 @@ openssl ts -reply -in OurNotes-Namecard-v1.0.1.zip.tsr -text
 
 ## 3. 验证比特币时间戳（`.ots`）
 
+三份证明都锚定在 **比特币区块 972187**（区块时间 2026-10-19 17:49:13 UTC）。
+只看证明本身，离线就行、也不需要节点：
+
 ```powershell
-ots upgrade OurNotes-Namecard-v1.0.1.zip   # 等 1~2 小时后，把「待确认」升级为「已锚定」
-ots verify  OurNotes-Namecard-v1.0.1.zip   # 打印区块高度与区块时间
-ots info    OurNotes-Namecard-v1.0.1.zip.ots
+ots info OurNotes-Namecard-v1.0.1.zip.ots     # 文件摘要 + 证明路径 + 区块高度
 ```
 
-不想装工具：把文件与 `.ots` 一起上传到 <https://opentimestamps.org> 在线校验。
-
-也可以完全不信这两个工具，自己从区块头验：
+要**重算一遍**，下面两种任选一种：
 
 ```powershell
+# A. 本地有 Bitcoin Core 节点时（ots verify 会向节点要区块头）
+ots verify OurNotes-Namecard-v1.0.1.zip.ots
+
+# B. 没有节点（大多数人）—— 用本目录的脚本，它从 mempool.space 取区块头
 python ots_verify_independent.py OurNotes-Namecard-v1.0.1.zip OurNotes-Namecard-v1.0.1.zip.ots
 ```
 
-它会从 mempool.space 取区块头，在本地重算 Merkle 路径，打印
-「本文件的 SHA-256 确实被写进了这个区块」。
+完全不想装东西：把 `<文件>` 和 `<文件>.ots` 一起上传到
+<https://opentimestamps.org> 在线校验。
+
+脚本做的事：从 `.ots` 读出摘要和证明路径 → 回溯到 Merkle 根 →
+从 mempool.space 取对应高度的区块头（80 字节）→ 确认根确实在这个区块里；
+并且先核对 `.ots` 里的摘要与本地文件的 SHA-256 一致（证明这份证明不是配别的文件的）。
 
 ## 4. 为什么两种都做
 
@@ -118,13 +124,17 @@ openssl ts -verify -in OurNotes-Namecard-v1.0.1.zip.tsr \
                    -data OurNotes-Namecard-v1.0.1.zip \
                    -CAfile freetsa_cacert.pem -untrusted freetsa_tsa.crt
 
-# 3. Bitcoin (after ~1-2 hours, once the block is mined)
-ots upgrade OurNotes-Namecard-v1.0.1.zip
-ots verify  OurNotes-Namecard-v1.0.1.zip
+# 3. Bitcoin — anchored in block 972187 (2026-10-19 17:49:13 UTC)
+ots info OurNotes-Namecard-v1.0.1.zip.ots      # offline: digest, path, block height
+ots verify OurNotes-Namecard-v1.0.1.zip.ots    # needs a LOCAL Bitcoin Core node
+python ots_verify_independent.py OurNotes-Namecard-v1.0.1.zip OurNotes-Namecard-v1.0.1.zip.ots
 ```
 
-`Verification: OK` and a block height are the whole answer. No trust in the
-author and no trust in GitHub is required — only in the TSA and in Bitcoin.
+`ots verify` asks a local Bitcoin Core node for the block header; without one it
+stops with `Could not connect to Bitcoin node`. The small script in this folder
+does the same arithmetic over a public API (mempool.space) — that is what we ran,
+and it printed `区块高度 972187: OK 验证通过`. Uploading both files to
+<https://opentimestamps.org> is the no-install route.
 
 **What this proves:** the work existed on that date.
 **What it does not prove:** that nobody did it earlier. See the README's

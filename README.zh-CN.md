@@ -143,7 +143,7 @@ certutil -hashfile OurNotes-Namecard-v1.0.1.zip SHA256
 | 是什么 | 在哪 |
 | --- | --- |
 | RFC 3161 可信时间戳（FreeTSA） | `proof/OurNotes-Namecard-v1.0.1.zip.tsr` |
-| 比特币时间戳（OpenTimestamps） | `proof/OurNotes-Namecard-v1.0.1.zip.ots` |
+| 比特币时间戳（OpenTimestamps） | `proof/OurNotes-Namecard-v1.0.1.zip.ots` —— **区块 972187**，2026-10-19 17:49:13 UTC |
 | 封存的源码包（**不公开**，只公开哈希） | `proof/archive-sha256.txt` |
 | 验证方法 | [`proof/README.md`](proof/README.md) |
 

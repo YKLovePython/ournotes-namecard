@@ -173,7 +173,7 @@ Details, including the data model and the exact field layout:
 | What | Where |
 | --- | --- |
 | RFC 3161 token (FreeTSA) | `proof/OurNotes-Namecard-v1.0.1.zip.tsr` |
-| Bitcoin attestation (OpenTimestamps) | `proof/OurNotes-Namecard-v1.0.1.zip.ots` |
+| Bitcoin attestation (OpenTimestamps) | `proof/OurNotes-Namecard-v1.0.1.zip.ots` — **block 972187**, 2026-10-19 17:49:13 UTC |
 | Sealed source archive (not published, hash only) | `proof/archive-sha256.txt` |
 | Verification steps | [`proof/README.md`](proof/README.md) |
 

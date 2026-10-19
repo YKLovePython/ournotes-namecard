@@ -2,7 +2,7 @@ OurNotes 名片助手 v1.0.1 —— 比特币锚定信息
 Bitcoin attestation — OurNotes Namecard v1.0.1
 ============================================================
 由后台守护脚本在拿到区块后自动写入。
-每一条都用 `ots verify <文件>` 可复现。
+每一条都能独立复现（`ots verify` 需要本地节点；没有节点就用下面的脚本）。
 
 OurNotes-Namecard-v1.0.1.zip.ots
   区块高度  972187
@@ -17,8 +17,8 @@ OurNotes-Namecard-v1.0.1-src.zip.ots
   区块时间  2026-10-19 17:49:13 UTC   (block hash 00000000000000000000e5eee7f2bce90258afe24cf61efdc0df66693bca58b2)
 
 验证：
-  ots verify OurNotes-Namecard-v1.0.1.zip      # 需要同名 .ots 在文件旁边
-  ots info   OurNotes-Namecard-v1.0.1.zip.ots
+  ots info   OurNotes-Namecard-v1.0.1.zip.ots  # 离线：摘要 + 区块高度
+  ots verify OurNotes-Namecard-v1.0.1.zip.ots  # 需要本地 Bitcoin Core 节点
   或 python ots_verify_independent.py <文件> <文件>.ots
 
 比特币的区块时间只精确到「不早于打包时刻」；它证明的是
