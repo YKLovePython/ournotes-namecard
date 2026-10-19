@@ -32,9 +32,13 @@
 
 * 发布包 SHA-256：`094f681f455c3e4a3d9c252d712a358b8e17bbe193ba887745143ba1caf797c7`
 * RFC 3161 可信时间戳（FreeTSA）：`proof/OurNotes-Namecard-v1.0.1.zip.tsr`
+  —— 签发于 2026-10-20 01:06:14（UTC+8）
 * 比特币时间戳（OpenTimestamps）：`proof/OurNotes-Namecard-v1.0.1.zip.ots`
+  —— 已锚定 **block 972187**（2026-10-19 17:49:13 UTC）
 * 封存源码包（不公开，只公开哈希）：见 `proof/archive-sha256.txt`
 * 独立验证方法：[`proof/README.md`](https://github.com/YKLovePython/ournotes-namecard/blob/main/proof/README.md)
+  （注意 `ots verify` 需要本地 Bitcoin Core 节点；没有节点用仓库里的
+  `proof/ots_verify_independent.py`，它从公开 API 取区块头重算）
 
 ### 说明
 
